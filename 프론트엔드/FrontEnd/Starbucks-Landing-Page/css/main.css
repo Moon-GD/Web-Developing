@@ -17,17 +17,20 @@ a {
   text-decoration: none;
 }
 
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
 /* header */
 header {
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
 }
 
-header .inner {
-  width: 1100px;
+header > .inner {
   height: 120px;
-  margin: 0 auto;
-  position: relative;
 }
 
 header .logo {
@@ -125,4 +128,55 @@ header .sub-menu .search span.material-icons {
 
 header .sub-menu .search.focused span.material-icons {
   opacity:0;
+}
+
+header .main-menu {
+  display:flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+header .main-menu li.items {
+  
+}
+
+header .main-menu li.items .item__name {
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+header .main-menu li.items:hover .item__name {
+  background-color: #2c2a29;
+  color:#669900;
+  border-radius: 5px 5px 0 0;
+}
+
+header .main-menu li.items .item__contents {
+  /* 
+    position: fixed 를 사용한 상태로
+    top, bottom 등의 수직 조건이 없을 경우 요소의 원래 위치를 기준으로 fixed!
+    만약 position: absolute를 사용하여 위치를 조정할 경우
+    width:100%를 사용할 수 없음(부모 요소 기준으로 늘어나게 되므로)
+   */
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu li.items:hover .item__contents {
+  display: block;
+}
+
+header .main-menu li.items .item__contents .contents__menu {
+  background-color: red;
+  height: 200px;
+}
+
+header .main-menu li.items .item__contents .contents__texture {
+  background-color: yellow;
+  height: 100px;
 }
