@@ -1,88 +1,29 @@
-/* common */
-a {
-  text-decoration: none;
+body {
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
-li {
-  list-style: none;
-}
-
-/* header */
-header {
-  background-color: #cecece;
-}
-
-header .inner {
-  width: 1100px;
-  height: 72px;
-  margin: 0 auto;
-  background-color: #cecece;
+.player-wrapper {
+  width: 800px;
+  height: 450px;
   position: relative;
+  background-color: #130f0f;
+  overflow:hidden;
 }
 
-header .inner a {
+#player {
+  height: 150%;
   position: absolute;
+  left: calc(10%);
   top: 0;
-  height: 72px;
-  width: 72px;
+  bottom: 0;
+  margin: auto 0;
 }
 
-header .inner a img {
+#block {
   width: 100%;
   height: 100%;
-}
-
-header .inner .main-menu {
-  position: relative;
-  height: 50px;
-}
-
-header .inner .main-menu ul {
-  display: flex;
   position: absolute;
-  right: 0;
-}
-
-header .inner .main-menu ul li {
-  font-size: 30px;
-  line-height: 1.2;
-  font-family: Arial, sans-serif;
-}
-
-header .inner .main-menu ul li.item:hover .name {
-  transition: 0.2s;
-  background-color: gray;
-  color:white;
-  border-radius: 5px 5px 0 0;
-}
-
-header .inner .main-menu ul li .name {
-  padding: 10px 20px 10px 20px;
-}
-
-header .inner .main-menu ul li .content {
-  width: 100%;
-  position: fixed;
-  left: 0;
-}
-
-header .inner .main-menu ul li .content .first {
-  display:none;
-  background-color: #555;
-  
-}
-
-header .inner .main-menu ul li .content .second {
-  display:none;
-  background-color: #666;
-}
-
-header .inner .main-menu ul li.item:hover .first {
-  height: 100px;
-  display:block;
-}
-
-header .inner .main-menu ul li.item:hover .second {
-  height: 50px;
-  display:block;
+  z-index:3;
 }
