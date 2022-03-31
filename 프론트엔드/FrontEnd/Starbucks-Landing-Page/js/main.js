@@ -20,6 +20,7 @@ searchElInput.addEventListener('blur', function() {
 })
 
 const badgeEl = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top');
 window.addEventListener('scroll', _.throttle(function() {
   /*
     throttle ? 
@@ -33,14 +34,31 @@ window.addEventListener('scroll', _.throttle(function() {
       opacity: 0,
       display:'none'
     });
+
+    // to-top 버튼 보이기!!
+    gsap.to(toTopEl, 0.4, {
+      x: 0,
+    })
   }
   else {
     gsap.to(badgeEl, .6, {
       opacity: 1,
       display: 'block'
     });
+
+    // to-top 버튼 숨기기!!
+    gsap.to(toTopEl, 0.4, {
+      x: 100,
+    })
   }
 }, 300));
+
+// 위로 스크롤하는 이벤트
+toTopEl.addEventListener('click', function() {
+  gsap.to(window, .7, {
+    scrollTo:0,
+  });
+});
 
 const fadeEls = document.querySelectorAll('.visual .fade-in');
 fadeEls.forEach((fadeEl, index) => {
