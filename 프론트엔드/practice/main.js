@@ -8,14 +8,27 @@ const KIA = {
 
 // 얕은 복사
 const HYUNDAI = Object.assign({}, KIA);
-console.log(HYUNDAI == KIA);
+// console.log(HYUNDAI == KIA);
 
 KIA.saled_year.push(1998)
-console.log(HYUNDAI.saled_year, KIA.saled_year);
+// console.log(HYUNDAI.saled_year, KIA.saled_year);
 
 // 깊은 복사
 const new_Car = _.cloneDeep(KIA);
-console.log(new_Car == KIA);
+// console.log(new_Car == KIA);
 
 KIA.saled_year.push(1000);
-console.log(new_Car.saled_year, KIA.saled_year);
+// console.log(new_Car.saled_year, KIA.saled_year);
+
+import rand from './random';
+import {
+  my_ceil as c, 
+  my_floor as f, 
+  my_round as r
+} from './random';
+console.log(rand(10))
+
+let pi = 3.14
+console.log(c(pi))
+console.log(f(pi))
+console.log(r(pi))
