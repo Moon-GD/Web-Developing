@@ -19370,75 +19370,65 @@ var define;
   }
 }.call(this));
 
-},{"buffer":"node_modules/buffer/index.js"}],"random.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = _default;
-exports.my_ceil = my_ceil;
-exports.my_floor = my_floor;
-exports.my_round = my_round;
-
-// default export는 함수명 없이 외부로 내보낼 수 있음
-// 외부에서 import 할 경우 as 의 도움 없이 자유롭게 명명 가능
-// 단, 모듈 당 오직 하나에게만 사용 가능
-function _default(num) {
-  // 1 ~ num 사이의 숫자 하나 랜덤 반환
-  return Math.floor(Math.random() * num) + 1;
-} // named export는 함수명을 지정해주고 외부로 내보냄
-// 외부에서 import 할 경우 as 문법이 아닌 이상 이름 그대로 사용해야 함
-// 하나의 모듈에서 여러 개를 내보낼 수 있음
-// 단, 외부에서 여러 개를 import 할 경우 {} 안에 넣어서 import 해야 함 
-
-
-function my_ceil(number) {
-  return Math.ceil(number);
-}
-
-function my_round(number) {
-  return Math.round(number);
-}
-
-function my_floor(number) {
-  return Math.floor(number);
-}
+},{"buffer":"node_modules/buffer/index.js"}],"myData.json":[function(require,module,exports) {
+module.exports = {
+  "string": "Heropy",
+  "number": 123,
+  "boolean": true,
+  "object": {},
+  "null": null
+};
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
 var _lodash = _interopRequireDefault(require("lodash"));
 
-var _random = _interopRequireWildcard(require("./random"));
-
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+var _myData = _interopRequireDefault(require("./myData.json"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var KIA = {
-  color: 'white',
-  wheel: '4',
-  saled_year: [2020, 2021, 2022]
-}; // 얕은 복사
+// const KIA = {
+//   color:'white',
+//   wheel:'4',
+//   saled_year:[2020, 2021, 2022]
+// };
+// // 얕은 복사
+// const HYUNDAI = Object.assign({}, KIA);
+// // console.log(HYUNDAI == KIA);
+// KIA.saled_year.push(1998)
+// // console.log(HYUNDAI.saled_year, KIA.saled_year);
+// // 깊은 복사
+// const new_Car = _.cloneDeep(KIA);
+// // console.log(new_Car == KIA);
+// KIA.saled_year.push(1000);
+// // console.log(new_Car.saled_year, KIA.saled_year);
+// import rand from './random';
+// import {
+//   my_ceil as c, 
+//   my_floor as f, 
+//   my_round as r
+// } from './random';
+// // console.log(rand(10))
+// let pi = 3.14
+// console.log(c(pi))
+// console.log(f(pi))
+// console.log(r(pi))
+// console.log(myData);
+var user = {
+  name: "Moon",
+  device: "Note-20",
+  age: 25,
+  major: "Math"
+};
+var str = JSON.stringify(user); // json 파일 내부의 모든 내용은 ! 문자열임 !
+// 이유는? 통신 간에 데이터를 주고 받을 때 json 이 매개가 됨
+// 근데, json 내부에 다양한 참조형 객체가 들어갈 수 있기 때문에 경량화를 위해서 문자열로 취급함 !!
 
-var HYUNDAI = Object.assign({}, KIA); // console.log(HYUNDAI == KIA);
+console.log("str: \n", str); // JS에서 사용될 수 있도록 다시 객체화 해주기
 
-KIA.saled_year.push(1998); // console.log(HYUNDAI.saled_year, KIA.saled_year);
-// 깊은 복사
-
-var new_Car = _lodash.default.cloneDeep(KIA); // console.log(new_Car == KIA);
-
-
-KIA.saled_year.push(1000); // console.log(new_Car.saled_year, KIA.saled_year);
-
-console.log((0, _random.default)(10));
-var pi = 3.14;
-console.log((0, _random.my_ceil)(pi));
-console.log((0, _random.my_floor)(pi));
-console.log((0, _random.my_round)(pi));
-},{"lodash":"node_modules/lodash/lodash.js","./random":"random.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var obj = JSON.parse(str);
+console.log('obj : \n', obj);
+},{"lodash":"node_modules/lodash/lodash.js","./myData.json":"myData.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19466,7 +19456,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62583" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57460" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

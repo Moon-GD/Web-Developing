@@ -19376,48 +19376,6 @@ var define;
 var _lodash = _interopRequireDefault(require("lodash"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// lodash 함수 사용
-// 객체 데이터 A, B ,C
-var userA = [{
-  name: 'Moon',
-  age: 25
-}, {
-  name: 'Lee',
-  age: 23
-}];
-var userB = [{
-  name: 'Lee',
-  age: 23
-}, {
-  name: 'Kim',
-  age: 20
-}]; // 1. _.uniqby(집합처럼 만들어주고 싶은 참조형 데이터, 기준이 되는 키 값)
-
-var userD = userA.concat(userB);
-console.log('userD : ', userD);
-userD = _lodash.default.uniqBy(userD, 'name');
-console.log('userD : (uniqby name)', userD); // 2. _.unionby(대상 객체, 기준이 되는 키 값)
-
-var userE = _lodash.default.unionBy(userA, userB, 'name');
-
-console.log('userE : ', userE); // 3. _.find(대상 객체, 찾고자 하는 내용)
-
-var searchResult = _lodash.default.find(userD, {
-  name: 'Moon'
-});
-
-console.log(searchResult); // 4. _.findIndex(대상 객체, 찾고자 하는 내용)
-
-var index = _lodash.default.findIndex(userD, searchResult);
-
-console.log(index); // 5. _.remove(대상 객체, 지우고자 하는 내용 <일부 내용도 가능> )
-
-_lodash.default.remove(userD, {
-  name: 'Lee'
-});
-
-console.log(userD);
 },{"lodash":"node_modules/lodash/lodash.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -19446,7 +19404,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62583" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57460" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
