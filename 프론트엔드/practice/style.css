@@ -1,0 +1,19 @@
+section {
+  height: 300px;
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+section input {
+  font-size: 30px;
+  margin: 5px;
+}
+
+section button {
+  font-size: 30px;
+  margin: 5px;
+}

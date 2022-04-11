@@ -19423,11 +19423,38 @@ var user = {
 var str = JSON.stringify(user); // json 파일 내부의 모든 내용은 ! 문자열임 !
 // 이유는? 통신 간에 데이터를 주고 받을 때 json 이 매개가 됨
 // 근데, json 내부에 다양한 참조형 객체가 들어갈 수 있기 때문에 경량화를 위해서 문자열로 취급함 !!
+// console.log("str: \n", str);
+// // JS에서 사용될 수 있도록 다시 객체화 해주기
+// const obj = JSON.parse(str);
+// console.log('obj : \n', obj);
+// 04/11
+// localStorage.setItem('user', JSON.stringify(user))
+// let obj = JSON.parse(localStorage.getItem('user'))
+// obj.age = 25;
+// localStorage.setItem('user', JSON.stringify(obj));
+// localStorage 실습
 
-console.log("str: \n", str); // JS에서 사용될 수 있도록 다시 객체화 해주기
+var id, pw;
+var register_btn = document.querySelector('button');
+var user_array = [];
+register_btn.addEventListener('click', function () {
+  id = document.querySelector('input.id').value;
+  pw = document.querySelector('input.pw').value;
+  var newUser = {
+    id: id,
+    pw: pw
+  };
+  localStorage.setItem("user".concat(user_array.length + 1), JSON.stringify(newUser));
+  user_array.push(newUser);
+});
+var list = document.querySelector('button.list');
+list.addEventListener('click', function () {
+  console.log(user_array.length);
 
-var obj = JSON.parse(str);
-console.log('obj : \n', obj);
+  for (var i = 0; i < user_array.length; i++) {
+    console.log(JSON.parse(localStorage.getItem("user".concat(i + 1))));
+  }
+});
 },{"lodash":"node_modules/lodash/lodash.js","./myData.json":"myData.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -19456,7 +19483,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57460" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59841" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
